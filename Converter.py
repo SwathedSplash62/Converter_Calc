@@ -1,7 +1,7 @@
-def num_check(question):
+def unit_check(question):
     valid = False
     while not valid:
-        error = "Please enter an integer that is greater than or equal to one and less than or equal to 200"
+        error = "Please enter a unit being Weight, Distance or Time "
 
         try:
 
@@ -44,6 +44,7 @@ def instructions():
     print("Complete as many calculations as necessary, pressing <enter> at the end of each "
           "calculation or any key to quit.")
     print()
+    statement_generator("Converter Of Time, Weight and Distance", "+")
     return ""
 
 
@@ -67,4 +68,71 @@ def user_choice():
             print()
 
 
-int(input(user_choice()))
+def distance_bits():
+    print()
+    to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters, or Kilometers: ")
+    to_be_converted_to = input("Enter the unit of distance you are converting to, being Meters, Centimeters, "
+                               "or Kilometers: ")
+
+    print()
+    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
+    print()
+    statement_generator("You have chosen {}", "+".format(heading))
+
+    return ""
+
+
+def time_bits():
+    print()
+    to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters, or Kilometers: ")
+    to_be_converted_to = input("Enter the unit of distance you are converting to, being Meters, Centimeters, "
+                               "or Kilometers: ")
+
+    print()
+    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
+    print()
+    statement_generator("You have chosen {}", "+".format(heading))
+
+    return ""
+
+
+def weight_bits():
+    print()
+    to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters, or Kilometers: ")
+    to_be_converted_to = input("Enter the unit of distance you are converting to, being Meters, Centimeters, "
+                               "or Kilometers: ")
+
+    print()
+    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
+    print()
+    statement_generator("You have chosen {}", "+".format(heading))
+
+    return ""
+
+
+statement_generator("Converter Of Time, Weight and Distance", "+")
+
+first_time = input("Press <enter> to see the instructions or any key to continue")
+if first_time == "":
+    instructions()
+
+keep_going = ""
+while keep_going == "":
+
+    data_type = user_choice()
+    print("You Chose", data_type)
+
+    if data_type == "distance":
+        distance_bits()
+
+    elif data_type == "time":
+        time_bits()
+
+    else:
+        weight_bits()
+
+    print()
+    keep_going = input("Press <enter> to continue or any key to quit")
+
+print()
+print("Thanks for using the Calculator for Integers, Text & Images")
