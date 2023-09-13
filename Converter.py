@@ -3,22 +3,22 @@ def unit_check(question):
     while not valid:
         error = "Please enter a unit being Weight, Distance or Time "
 
-        try:
+        # ask user to enter a number
+        response = (input(question))
 
-            # ask user to enter a number
-            response = int(input(question))
+        # checks number is more than zero
+        if response == "time" or response == "t":
+            return "You have chosen Time "
 
-            # checks number is more than zero
-            if 1 <= response <= 200:
-                return response
+        elif response == "distance" or response == "d":
+            return "You have chosen Distance"
 
-            # Outputs error if input is invalid
-            else:
-                print(error)
-                print()
+        elif response == "Weight" or "w":
+            return "You have chosen Weight"
 
-        except ValueError:
-            print(error)
+
+        else:
+            print("Please choose a valid file type in the form of time, distance or weight")
             print()
 
 
@@ -46,26 +46,6 @@ def instructions():
     print()
     statement_generator("Converter Of Time, Weight and Distance", "+")
     return ""
-
-
-def user_choice():
-    valid = False
-    while not valid:
-
-        response = input("What is your chosen unit?: ").lower()
-
-        if response == "time" or response == "t":
-            return "You have chosen Time "
-
-        elif response == "distance" or response == "d":
-            return "You have chosen Distance"
-
-        elif response == "Weight" or "w":
-            return "You have chosen Weight"
-
-        else:
-            print("Please choose a valid file type in the form of time, distance or weight")
-            print()
 
 
 def distance_bits():
@@ -106,9 +86,14 @@ def weight_bits():
     heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
     print()
     statement_generator("You have chosen {}", "+".format(heading))
+    print()
 
     return ""
 
+
+my_dict = {
+    "meter" or "meters": 10 / 1000
+}
 
 statement_generator("Converter Of Time, Weight and Distance", "+")
 
@@ -118,9 +103,8 @@ if first_time == "":
 
 keep_going = ""
 while keep_going == "":
-
-    data_type = user_choice()
-    print("You Chose", data_type)
+    data_type = unit_check("What is your chosen unit?: ")
+    print(data_type)
 
     if data_type == "distance":
         distance_bits()
@@ -135,4 +119,4 @@ while keep_going == "":
     keep_going = input("Press <enter> to continue or any key to quit")
 
 print()
-print("Thanks for using the Calculator for Integers, Text & Images")
+print("Thanks for using the Converter Of Time, Weight and Distance")
