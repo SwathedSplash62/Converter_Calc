@@ -109,41 +109,74 @@ def instructions():
     return ""
 
 
-def distance_bits():
-    my_dict = {
-        "Meters to Meters": "sky",
-        "Kilometers to Meters": 2,
-        "Meters to Kilometers": 0.5,
-        "Centimeters to Meters": "sun",
-        "Centimeters to Kilometers": 1000,
-        "red": "apple"
-    }
+# def distance_bits():
+#     my_dict = {
+#         "Meters to Meters": "sky",
+#         "Kilometers to Meters": 2,
+#         "Meters to Kilometers": 0.5,
+#         "Centimeters to Meters": "sun",
+#         "Centimeters to Kilometers": 1000,
+#         "red": "apple"
+#     }
+#
+# print() to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters,
+# or Kilometers: ") to_be_converted_to = unit_check_distance( "Enter the unit of distance you are converting to,
+# being Meters, Centimeters, " "or Kilometers: ")
+#
+#     print()
+#     heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
+#     statement_generator("You have chosen {}", "+".format(heading))
+#     print()
+#
+#     return ""
 
-    print()
-    to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters, or Kilometers: ")
-    to_be_converted_to = unit_check_distance(
-        "Enter the unit of distance you are converting to, being Meters, Centimeters, "
-        "or Kilometers: ")
 
-    print()
-    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
-    statement_generator("You have chosen {}", "+".format(heading))
-    print()
+def unit_check_time(question):
+    valid = False
+    while not valid:
+
+        response = input(question)
+
+        if response == "grams" or response == "g":
+            return "Grams"
+
+        elif response == "milligrams" or response == "mg":
+            return "Milligrams"
+
+        elif response == "Kilograms" or response == "kg":
+            return "Kilograms"
+
+        else:
+            print("Please choose a the unit of distance you are converting to, being Seconds, Minutes "
+                  "Hours")
 
     return ""
 
 
 def time_bits():
     print()
-    to_be_converted = input("Enter the unit of time you are converting, being Seconds, Minutes, Hours: ")
-    to_be_converted_to = input("Enter the unit of time you are converting to, being Seconds, Minutes, Hours: ")
+    to_be_converted = unit_check_time(
+        "Enter the unit of time you are converting, being Seconds, Minutes, Hours: ")
+    to_be_converted_to = unit_check_time("Enter the unit of time you are converting to, being Seconds, Minutes, "
+                                         "Hours: ")
 
     print()
     heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
     statement_generator("You have chosen {}", "+".format(heading))
     print()
 
-    return ""
+
+def distance_bits():
+    print()
+    to_be_converted = unit_check_distance(
+        "Enter the unit of Distance you are converting being Centimeters, Meters, Kilometers: ")
+    to_be_converted_to = unit_check_distance(
+        "Enter the unit of Distance you are to converting being Centimeters, Meters, Kilometers: ")
+
+    print()
+    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
+    statement_generator("You have chosen {}", "+".format(heading))
+    print()
 
 
 def weight_bits():
