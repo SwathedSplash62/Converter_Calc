@@ -18,6 +18,33 @@ def unit_check(question):
             print()
 
 
+def num_check(question):
+    valid = False
+    while not valid:
+        error = "Please enter something that is more than zero"
+
+        try:
+
+            # ask user to enter a number
+            response = float(input(question))
+
+            # checks number is more than zero
+            if response > 0:
+                return response
+                print(error)
+                print()
+
+
+            # Outputs error if input is invalid
+            else:
+                print(error)
+                print()
+
+        except ValueError:
+            print(error)
+            print()
+
+
 # def to_check(question):
 #     my_dict = {
 #         "meters": "sky",
@@ -83,6 +110,28 @@ def unit_check_weight(question):
             print()
 
 
+def unit_check_time(question):
+    valid = False
+    while not valid:
+
+        response = input(question)
+
+        if response == "sec" or response == "seconds":
+            return "Seconds"
+
+        elif response == "min" or response == "minutes":
+            return "Minutes"
+
+        elif response == "hrs" or response == "hours":
+            return "Hours"
+
+        else:
+            print("Please choose a the unit of distance you are converting to, being Seconds, Minutes "
+                  "Hours")
+
+    return ""
+
+
 def statement_generator(text, decoration):
     # Make string with five characters
     ends = decoration * 5
@@ -109,50 +158,6 @@ def instructions():
     return ""
 
 
-# def distance_bits():
-#     my_dict = {
-#         "Meters to Meters": "sky",
-#         "Kilometers to Meters": 2,
-#         "Meters to Kilometers": 0.5,
-#         "Centimeters to Meters": "sun",
-#         "Centimeters to Kilometers": 1000,
-#         "red": "apple"
-#     }
-#
-# print() to_be_converted = input("Enter the unit of distance you are converting, being Meters, Centimeters,
-# or Kilometers: ") to_be_converted_to = unit_check_distance( "Enter the unit of distance you are converting to,
-# being Meters, Centimeters, " "or Kilometers: ")
-#
-#     print()
-#     heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
-#     statement_generator("You have chosen {}", "+".format(heading))
-#     print()
-#
-#     return ""
-
-
-def unit_check_time(question):
-    valid = False
-    while not valid:
-
-        response = input(question)
-
-        if response == "grams" or response == "g":
-            return "Grams"
-
-        elif response == "milligrams" or response == "mg":
-            return "Milligrams"
-
-        elif response == "Kilograms" or response == "kg":
-            return "Kilograms"
-
-        else:
-            print("Please choose a the unit of distance you are converting to, being Seconds, Minutes "
-                  "Hours")
-
-    return ""
-
-
 def time_bits():
     print()
     to_be_converted = unit_check_time(
@@ -160,9 +165,7 @@ def time_bits():
     to_be_converted_to = unit_check_time("Enter the unit of time you are converting to, being Seconds, Minutes, "
                                          "Hours: ")
 
-    print()
-    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
-    statement_generator("You have chosen {}", "+".format(heading))
+    print("You have chosen {} to {}".format(to_be_converted, to_be_converted_to))
     print()
 
 
@@ -173,9 +176,7 @@ def distance_bits():
     to_be_converted_to = unit_check_distance(
         "Enter the unit of Distance you are to converting being Centimeters, Meters, Kilometers: ")
 
-    print()
-    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
-    statement_generator("You have chosen {}", "+".format(heading))
+    print("You have chosen {} to {}".format(to_be_converted, to_be_converted_to))
     print()
 
 
@@ -186,12 +187,16 @@ def weight_bits():
     to_be_converted_to = unit_check_weight("Enter the unit of distance you are converting to, being Milligrams, Grams, "
                                            "Kilograms: ")
 
-    print()
-    heading = input("{} to {}".format(to_be_converted, to_be_converted_to))
-    statement_generator("You have chosen {}", "+".format(heading))
+    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
+    print("You have chosen {}".format(first_part))
+
     print()
 
-    return ""
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
+
+    print("You have chosen {:.2f} {}".format(to_be_converted_integer, first_part))
+    print()
 
 
 statement_generator("Converter Of Time, Weight and Distance", "+")
@@ -205,17 +210,14 @@ while keep_going == "":
     data_type = unit_check("What is your chosen unit?: ")
     print(data_type)
 
-    if data_type == "distance":
+    if data_type == "You Have Chosen Distance":
         distance_bits()
 
-    elif data_type == "time":
+    elif data_type == "You Have Chosen Time":
         time_bits()
 
     else:
         weight_bits()
-
-    print()
-    keep_going = input("Press <enter> to continue or any key to quit")
 
 print()
 print("Thanks for using the Converter Of Time, Weight and Distance")
