@@ -45,29 +45,6 @@ def num_check(question):
             print()
 
 
-# def to_check(question):
-#     my_dict = {
-#         "meters": "sky",
-#         "double": 2,
-#         "half": 0.5,
-#         "yellow": "sun",
-#         "green": "grass",
-#         "red": "apple"
-#     }
-#     valid = False
-#     while not valid:
-#
-#         response = input("What is your chosen unit?: ")
-#
-#         for item in response:
-#
-#             # check if it's a ley (ie a color in our dict)
-#             if item in my_dict:
-#                 print("{} is a key in the dictionary".format(item))
-#             # check if it's a value (ie: an object in our dictionary)
-#             elif item in my_dict.values():
-#                 print("{} is a value in the dictionary".format(item))
-
 def unit_check_distance(question):
     valid = False
     while not valid:
@@ -188,15 +165,40 @@ def weight_bits():
                                            "Kilograms: ")
 
     first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
-    print("You have chosen {}".format(first_part))
+    output =("You have chosen {}".format(first_part))
+    print(output)
 
     print()
 
     to_be_converted_integer = num_check(
         "Enter the integer of the unit you are converting, being more than 0: ")
+    valid = False
+    while not valid:
 
-    print("You have chosen {:.2f} {}".format(to_be_converted_integer, first_part))
-    print()
+        my_dict = {
+            "convert_down": "0.001",
+            "convert_up": "1000"
+        }
+
+        response = output
+
+        if response == "Grams to Grams":
+            return "output"
+
+        elif response == "Grams to Kilograms":
+            to_do = input("double or half? ").lower()
+            multiply_by = my_dict[to_do]
+            answer = to_be_converted_integer * multiply_by
+            print("{} x {} = {}".format(to_be_converted_integer, multiply_by, answer))
+
+        elif response == "hrs" or response == "hours":
+            return "Hours"
+
+        elif response == "min" or response == "minutes":
+            return "Minutes"
+
+        elif response == "hrs" or response == "hours":
+            return "Hours"
 
 
 statement_generator("Converter Of Time, Weight and Distance", "+")
