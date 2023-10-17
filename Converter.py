@@ -78,7 +78,7 @@ def unit_check_weight(question):
         elif response == "milligrams" or response == "mg":
             return "Milligrams"
 
-        elif response == "Kilograms" or response == "kg":
+        elif response == "kilograms" or response == "kg":
             return "Kilograms"
 
         else:
@@ -105,8 +105,7 @@ def unit_check_time(question):
         else:
             print("Please choose a the unit of distance you are converting to, being Seconds, Minutes "
                   "Hours")
-
-    return ""
+            print()
 
 
 def statement_generator(text, decoration):
@@ -142,8 +141,14 @@ def time_bits():
     to_be_converted_to = unit_check_time("Enter the unit of time you are converting to, being Seconds, Minutes, "
                                          "Hours: ")
 
-    print("You have chosen {} to {}".format(to_be_converted, to_be_converted_to))
+    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
+    output = ("You have chosen {}".format(first_part))
+    print(output)
+
     print()
+
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
 
 
 def distance_bits():
@@ -153,52 +158,69 @@ def distance_bits():
     to_be_converted_to = unit_check_distance(
         "Enter the unit of Distance you are to converting being Centimeters, Meters, Kilometers: ")
 
-    print("You have chosen {} to {}".format(to_be_converted, to_be_converted_to))
-    print()
-
-
-def weight_bits():
-    print()
-    to_be_converted = unit_check_weight(
-        "Enter the unit of weight you are converting, being Milligrams, Grams, Kilograms: ")
-    to_be_converted_to = unit_check_weight("Enter the unit of distance you are converting to, being Milligrams, Grams, "
-                                           "Kilograms: ")
-
     first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
-    output =("You have chosen {}".format(first_part))
+    output = ("You have chosen {}".format(first_part))
     print(output)
 
     print()
 
     to_be_converted_integer = num_check(
         "Enter the integer of the unit you are converting, being more than 0: ")
-    valid = False
-    while not valid:
 
-        my_dict = {
-            "convert_down": "0.001",
-            "convert_up": "1000"
-        }
 
-        response = output
+def weight_bits():
+    print()
+    to_be_converted = unit_check_weight(
+        "Enter the unit of weight you are converting, being Milligrams, Grams, Kilograms: ")
+    to_be_converted_to = unit_check_weight("Enter the unit of weight you are converting to, being Milligrams, Grams, "
+                                           "Kilograms: ")
 
-        if response == "Grams to Grams":
-            return "output"
+    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
+    output = ("You have chosen {}".format(first_part))
+    print(output)
 
-        elif response == "Grams to Kilograms":
-            to_do = input("double or half? ").lower()
-            multiply_by = my_dict[to_do]
-            answer = to_be_converted_integer * multiply_by
-            print("{} x {} = {}".format(to_be_converted_integer, multiply_by, answer))
+    print()
 
-        elif response == "hrs" or response == "hours":
-            return "Hours"
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
 
-        elif response == "min" or response == "minutes":
-            return "Minutes"
+    good = True
+    while good:
 
-        elif response == "hrs" or response == "hours":
-            return "Hours"
+        if output == "You have chosen Grams to Grams":
+            print("{}Grams = {}Grams".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Milligrams to Milligrams":
+            print("{}Milligrams = {}Milligrams".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Kilograms to Kilograms":
+            print("{}Kilograms = {}Kilograms".format(to_be_converted_integer, to_be_converted_integer))
+
+        elif output == "You have chosen Milligrams to Grams":
+            answer = to_be_converted_integer / 10
+            print("{}Milligrams = {}Grams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Grams to Milligrams":
+            answer = to_be_converted_integer / 100
+            print("{}Grams = {}Milligrams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Grams to Kilograms":
+            answer = to_be_converted_integer / 1000
+            print("{}Grams = {}Kilograms".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilograms to Grams":
+            answer = to_be_converted_integer * 1000
+            print("{}Kilograms = {}Grams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Milligrams to Kilograms":
+            answer = to_be_converted_integer / 10000
+            print("{}Milligrams to {}Kilograms".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilograms to Milligrams":
+            answer = to_be_converted_integer * 1000000
+            print("{}Kilograms = {}Milligrams".format(to_be_converted_integer, answer))
+
+        return ""
 
 
 statement_generator("Converter Of Time, Weight and Distance", "+")
@@ -221,5 +243,10 @@ while keep_going == "":
     else:
         weight_bits()
 
+    print()
+    keep_going = input("Press <enter> to continue or any key to quit ")
+    print()
+
 print()
 print("Thanks for using the Converter Of Time, Weight and Distance")
+print()
