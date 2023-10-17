@@ -167,6 +167,45 @@ def distance_bits():
     to_be_converted_integer = num_check(
         "Enter the integer of the unit you are converting, being more than 0: ")
 
+    good = True
+    while good:
+
+        if output == "You have chosen Grams to Grams":
+            print("{}Grams = {}Grams".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Milligrams to Milligrams":
+            print("{}Milligrams = {}Milligrams".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Kilograms to Kilograms":
+            print("{}Kilograms = {}Kilograms".format(to_be_converted_integer, to_be_converted_integer))
+
+        elif output == "You have chosen Milligrams to Grams":
+            answer = to_be_converted_integer / 10
+            print("{}Milligrams = {}Grams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Grams to Milligrams":
+            answer = to_be_converted_integer / 100
+            print("{}Grams = {}Milligrams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Grams to Kilograms":
+            answer = to_be_converted_integer / 1000
+            print("{}Grams = {}Kilograms".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilograms to Grams":
+            answer = to_be_converted_integer * 1000
+            print("{}Kilograms = {}Grams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Milligrams to Kilograms":
+            answer = to_be_converted_integer / 10000
+            print("{}Milligrams to {}Kilograms".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilograms to Milligrams":
+            answer = to_be_converted_integer * 1000000
+            print("{}Kilograms = {}Milligrams".format(to_be_converted_integer, answer))
+
+        return ""
+
+
 
 def weight_bits():
     print()
