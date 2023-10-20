@@ -51,13 +51,13 @@ def unit_check_distance(question):
 
         response = input(question)
 
-        if response == "km" or response == "kilometers":
+        if response == "km" or response == "kilometers" or response == "Kilometers" or response == "Km":
             return "Kilometers"
 
-        elif response == "cm" or response == "centimeters":
+        elif response == "cm" or response == "centimeters" or response == "Centimeters" or response == "Cm":
             return "Centimeters"
 
-        elif response == "m" or response == "meters":
+        elif response == "m" or response == "meters" or response == "M" or response == "Meters":
             return "Meters"
 
         else:
@@ -72,13 +72,13 @@ def unit_check_weight(question):
 
         response = input(question)
 
-        if response == "grams" or response == "g":
+        if response == "grams" or response == "g" or response == "G" or response == "Grams":
             return "Grams"
 
-        elif response == "milligrams" or response == "mg":
+        elif response == "milligrams" or response == "mg" or response == "Mg" or response == "Milligrams":
             return "Milligrams"
 
-        elif response == "kilograms" or response == "kg":
+        elif response == "kilograms" or response == "kg" or response == "Kilograms" or response == "Kg":
             return "Kilograms"
 
         else:
@@ -93,13 +93,13 @@ def unit_check_time(question):
 
         response = input(question)
 
-        if response == "sec" or response == "seconds":
+        if response == "sec" or response == "seconds" or response == "Sec" or response == "Seconds":
             return "Seconds"
 
-        elif response == "min" or response == "minutes":
+        elif response == "min" or response == "minutes" or response == "Minutes" or response == "Min":
             return "Minutes"
 
-        elif response == "hrs" or response == "hours":
+        elif response == "hrs" or response == "hours" or response == "Hours" or response == "Hrs":
             return "Hours"
 
         else:
@@ -150,6 +150,52 @@ def time_bits():
     to_be_converted_integer = num_check(
         "Enter the integer of the unit you are converting, being more than 0: ")
 
+    good = True
+    while good:
+
+        if output == "You have chosen Seconds to Seconds":
+            print("{}Seconds = {}Seconds".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Minutes to Minutes":
+            print("{}Minutes = {}Minutes".format(to_be_converted_integer, to_be_converted_integer))
+
+        if output == "You have chosen Hours to Hours":
+            print("{}Hours = {}Hours".format(to_be_converted_integer, to_be_converted_integer))
+
+        elif output == "You have chosen Seconds to Minutes":
+            answer = to_be_converted_integer / 60
+            print("{}Seconds = {}Minutes".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Minutes to Seconds":
+            answer = to_be_converted_integer * 60
+            print("{}Minutes = {}Seconds".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Minutes to Hours":
+            answer = to_be_converted_integer / 60
+            print("{}Minutes = {}Hours".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Hours to Minutes":
+            answer = to_be_converted_integer * 60
+            print("{}Hours = {}Minutes".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Seconds to Hours":
+            answer = to_be_converted_integer / 3600
+            print("{}Seconds to {}Hours".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Hours to Seconds":
+            answer = to_be_converted_integer * 360
+            print("{}Hours = {}Seconds".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Hours to Minutes":
+            answer = to_be_converted_integer * 60
+            print("{}Hours = {}Minutes".format(to_be_converted_integer, answer,))
+
+        elif output == "You have chosen Minutes to Hours":
+            answer = to_be_converted_integer / 60
+            print("{}Minutes = {}Hours".format(to_be_converted_integer, answer))
+
+        return ""
+
 
 def distance_bits():
     print()
@@ -170,41 +216,48 @@ def distance_bits():
     good = True
     while good:
 
-        if output == "You have chosen Grams to Grams":
-            print("{}Grams = {}Grams".format(to_be_converted_integer, to_be_converted_integer))
+        if output == "You have chosen Centimeters to Centimeters":
+            print("{}Centimeters = {}Centimeters".format(to_be_converted_integer, to_be_converted_integer))
 
-        if output == "You have chosen Milligrams to Milligrams":
-            print("{}Milligrams = {}Milligrams".format(to_be_converted_integer, to_be_converted_integer))
+        if output == "You have chosen Meters to Meters":
+            print("{}Meters = {}Meters".format(to_be_converted_integer, to_be_converted_integer))
 
-        if output == "You have chosen Kilograms to Kilograms":
-            print("{}Kilograms = {}Kilograms".format(to_be_converted_integer, to_be_converted_integer))
+        if output == "You have chosen Kilometers to Kilometers":
+            print("{}Kilometers = {}Kilometers".format(to_be_converted_integer, to_be_converted_integer))
 
-        elif output == "You have chosen Milligrams to Grams":
-            answer = to_be_converted_integer / 10
-            print("{}Milligrams = {}Grams".format(to_be_converted_integer, answer))
-
-        elif output == "You have chosen Grams to Milligrams":
+        elif output == "You have chosen Centimeters to Meters":
             answer = to_be_converted_integer / 100
-            print("{}Grams = {}Milligrams".format(to_be_converted_integer, answer))
+            print("{}Centimeters= {}Meters".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Grams to Kilograms":
+        elif output == "You have chosen Meters to Centimeters":
+            answer = to_be_converted_integer * 100
+            print("{}Meters = {}Centimeters".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Meters to Kilometers":
             answer = to_be_converted_integer / 1000
-            print("{}Grams = {}Kilograms".format(to_be_converted_integer, answer))
+            print("{}Meters = {}Kilometers".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Kilograms to Grams":
+        elif output == "You have chosen Kilometers to Meters":
             answer = to_be_converted_integer * 1000
-            print("{}Kilograms = {}Grams".format(to_be_converted_integer, answer))
+            print("{}Kilometers = {}Meters".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Milligrams to Kilograms":
-            answer = to_be_converted_integer / 10000
-            print("{}Milligrams to {}Kilograms".format(to_be_converted_integer, answer))
+        elif output == "You have chosen Centimeters to Kilometers":
+            answer = to_be_converted_integer / 100000
+            print("{}Centimeters to {}Kilometers".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Kilograms to Milligrams":
-            answer = to_be_converted_integer * 1000000
-            print("{}Kilograms = {}Milligrams".format(to_be_converted_integer, answer))
+        elif output == "You have chosen Kilometers to Centimeters":
+            answer = to_be_converted_integer * 100000
+            print("{}Kilometers = {}Centimeters".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Meters to Kilometers":
+            answer = to_be_converted_integer / 1000
+            print("{}Meters to {}Kilometers".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilometers to Meters":
+            answer = to_be_converted_integer * 1000
+            print("{}Kilometers = {}Meters".format(to_be_converted_integer, answer))
 
         return ""
-
 
 
 def weight_bits():
@@ -252,12 +305,20 @@ def weight_bits():
             print("{}Kilograms = {}Grams".format(to_be_converted_integer, answer))
 
         elif output == "You have chosen Milligrams to Kilograms":
-            answer = to_be_converted_integer / 10000
+            answer = to_be_converted_integer / 1000000
             print("{}Milligrams to {}Kilograms".format(to_be_converted_integer, answer))
 
         elif output == "You have chosen Kilograms to Milligrams":
             answer = to_be_converted_integer * 1000000
             print("{}Kilograms = {}Milligrams".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Grams to Kilograms":
+            answer = to_be_converted_integer / 1000
+            print("{}Grams to {}Kilograms".format(to_be_converted_integer, answer))
+
+        elif output == "You have chosen Kilograms to Grams":
+            answer = to_be_converted_integer * 1000
+            print("{}Kilograms = {}Grams".format(to_be_converted_integer, answer))
 
         return ""
 
