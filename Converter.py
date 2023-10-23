@@ -183,7 +183,7 @@ def time_bits():
             print("{} Seconds to {} Hours".format(to_be_converted_integer, answer))
 
         elif output == "You have chosen Hours to Seconds":
-            answer = to_be_converted_integer * 360
+            answer = to_be_converted_integer * 3600
             print("{} Hours = {} Seconds".format(to_be_converted_integer, answer))
 
         elif output == "You have chosen Hours to Minutes":
