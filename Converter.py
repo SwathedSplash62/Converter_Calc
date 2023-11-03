@@ -62,8 +62,8 @@ def unit_check_distance(question):
             return "Meters"
 
         else:
-            print("Please choose a the unit of distance you are converting to, being Centimeters, Meters, or "
-                  "Kilometers")
+            print("Please choose a the unit of distance you are converting to, being Centimeters/Centimetres, Meters/"
+                  "Metres, or Kilometers/Kilometres")
             print()
 
 
@@ -128,7 +128,7 @@ def instructions():
     print()
     print("Please choose a number than is greater than or equal to one and less than or equal to 200")
     print()
-    print("Use American English and complete as many calculations as necessary, pressing <enter> at the end of each "
+    print("Complete as many calculations as necessary, pressing <enter> at the end of each "
           "calculation or any key to quit.")
     print()
     statement_generator("Converter Of Time, Weight and Distance", "+")
@@ -203,11 +203,15 @@ def time_bits():
 def distance_bits():
     print()
     to_be_converted = unit_check_distance(
-        "Enter the unit of Distance you are converting being Centimeters, Meters, Kilometers: ")
+        "Enter the unit of Distance you are converting being Centimeters/Centimetres, Meters/Metres, Kilometers/"
+        "Kilometres: ")
     print()
 
     to_be_converted_to = unit_check_distance(
-        "Enter the unit of Distance you are into converting being Centimeters, Meters, Kilometers: ")
+        "Enter the unit of Distance you are converting into being Centimeters/Centimetres, Meters/Metres, "
+        "Kilometers/Kilometres: ")
+
+    print()
 
     first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
     output = ("You have chosen {}".format(first_part))
@@ -221,46 +225,45 @@ def distance_bits():
     good = True
     while good:
 
-        if output == "You have chosen Centimeters to Centimeters":
-            print("{} Centimeters = {} Centimeters".format(to_be_converted_integer, to_be_converted_integer))
-
-        if output == "You have chosen Meters to Meters":
-            print("{} Meters = {} Meters".format(to_be_converted_integer, to_be_converted_integer))
-
-        if output == "You have chosen Kilometers to Kilometers":
-            print("{} Kilometers = {} Kilometers".format(to_be_converted_integer, to_be_converted_integer))
-
-        elif output == "You have chosen Centimeters to Meters":
+        if output == "You have chosen Centimeters/Centimetres to Centimeters/Centimetres":
+            print("{} Centimeters/Centimetres = {} Centimeters/Centimetres".format(to_be_converted_integer,
+                                                                                   to_be_converted_integer))
+        if output == "You have chosen Meters/Metres to Meters/Metres":
+            print("{} Meters/Metres = {} Meters/Metres".format(to_be_converted_integer, to_be_converted_integer))
+        if output == "You have chosen Kilometers/Kilometres to Kilometers/Kilometres":
+            print("{} Kilometers/Kilometres = {} Kilometers/Kilometres".format(to_be_converted_integer,
+                                                                               to_be_converted_integer))
+        elif output == "You have chosen Centimeters/Centimetres to Meters/Metres":
             answer = to_be_converted_integer / 100
-            print("{} Centimeters = {} Meters".format(to_be_converted_integer, answer))
+            print("{} Centimeters/Centimetres = {} Meters/Metres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Meters to Centimeters":
+        elif output == "You have chosen Meters/Metres to Centimeters/Centimetres":
             answer = to_be_converted_integer * 100
-            print("{} Meters = {} Centimeters".format(to_be_converted_integer, answer))
+            print("{} Meters/Metres = {} Centimeters/Centimetres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Meters to Kilometers":
+        elif output == "You have chosen Meters/Metres to Kilometers/Kilometres":
             answer = to_be_converted_integer / 1000
-            print("{} Meters = {} Kilometers".format(to_be_converted_integer, answer))
+            print("{} Meters/Metres = {} Kilometers/Kilometres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Kilometers to Meters":
+        elif output == "You have chosen Kilometers/Kilometres to Meters/Metres":
             answer = to_be_converted_integer * 1000
-            print("{} Kilometers = {} Meters".format(to_be_converted_integer, answer))
+            print("{} Kilometers/Kilometres = {} Meters/Metres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Centimeters to Kilometers":
+        elif output == "You have chosen Centimeters/Centimetres to Kilometers/Kilometres":
             answer = to_be_converted_integer / 100000
-            print("{} Centimeters to {} Kilometers".format(to_be_converted_integer, answer))
+            print("{} Centimeters/Centimetres to {} Kilometers/Kilometres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Kilometers to Centimeters":
+        elif output == "You have chosen Kilometers/Kilometres to Centimeters/Centimetres":
             answer = to_be_converted_integer * 100000
-            print("{} Kilometers = {} Centimeters".format(to_be_converted_integer, answer))
+            print("{} Kilometers/kilometres = {} Centimeters/Centimetres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Meters to Kilometers":
+        elif output == "You have chosen Meters/Metres to Kilometers/Kilometres":
             answer = to_be_converted_integer / 1000
-            print("{} Meters to {} Kilometers".format(to_be_converted_integer, answer))
+            print("{} Meters/Metres to {} Kilometers/Kilometres".format(to_be_converted_integer, answer))
 
-        elif output == "You have chosen Kilometers to Meters":
+        elif output == "You have chosen Kilometers/Kilometres to Meters/Metres":
             answer = to_be_converted_integer * 1000
-            print("{} Kilometers = {} Meters".format(to_be_converted_integer, answer))
+            print("{} Kilometers/Kilometres = {} Meters/Metres".format(to_be_converted_integer, answer))
 
         return ""
 
