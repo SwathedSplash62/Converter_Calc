@@ -54,10 +54,12 @@ def unit_check_distance(question):
             return "Kilometers"
 
         elif response == "cm" or response == "centimeters" or response == "Centimeters" or response == "Cm" or response\
+            \
                 == "Centimetres" or response == "centimetres":
             return "Centimeters"
 
         elif response == "m" or response == "meters" or response == "M" or response == "Meters" or response == "metres"\
+        \
                 or response == "Metres":
             return "Meters"
 
@@ -143,6 +145,8 @@ def time_bits():
 
     to_be_converted_to = unit_check_time("Enter the unit of time you are converting into, being Seconds, Minutes, "
                                          "Hours: ")
+
+    print()
 
     first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
     output = ("You have chosen {}".format(first_part))
@@ -276,6 +280,7 @@ def weight_bits():
 
     to_be_converted_to = unit_check_weight("Enter the unit of weight you are converting into, being Milligrams, Grams, "
                                            "Kilograms: ")
+
     print()
 
     first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
@@ -348,13 +353,12 @@ while keep_going == "":
     if data_type == "You Have Chosen Distance":
         distance_bits()
 
-    if data_type == "You Have Chosen Time":
+    if data_type == "You Have Chosen Weight":
         time_bits()
 
     else:
-        weight_bits()
+        time_bits()
 
-    print()
     keep_going = input("Press <enter> to continue or any key to quit ")
     print()
 
