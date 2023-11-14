@@ -119,6 +119,8 @@ def instructions():
 
 # Lists to check that chosen units are in the same domain
 all_distance = ["mm", "cm", "m", "km"]
+all_time = ["secs", "mins", "hrs"]
+all_weight = ["g"]
 
 statement_generator("Converter Of Time, Weight and Distance", "+")
 
@@ -133,7 +135,7 @@ while keep_going == "":
 
     from_unit = unit_check("What unit do you have? ")
     to_unit = unit_check("What unit do you want? ")
-    how_much = num_check(f"How many {from_unit} do you have?")
+    how_much = num_check("How many {from_unit} do you have?")
 
     keep_going = input("Press <enter> to continue or any key to quit ")
     print()
