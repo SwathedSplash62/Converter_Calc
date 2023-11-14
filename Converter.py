@@ -31,8 +31,6 @@ def num_check(question):
             # checks number is more than zero
             if response > 0:
                 return response
-                print(error)
-                print()
 
             else:
                 print(error)
@@ -47,19 +45,17 @@ def unit_check_distance(question):
     valid = False
     while not valid:
 
-        response = input(question)
+        response = input(question).lower()
 
         if response == "km" or response == "kilometers" or response == "Kilometers" or response == "Km" or response == \
                 "Kilometres" or response == "kilometres":
             return "Kilometers"
 
-        elif response == "cm" or response == "centimeters" or response == "Centimeters" or response == "Cm" or response\
-            \
+        elif response == "cm" or response == "centimeters" or response == "Centimeters" or response == "Cm" or response \
                 == "Centimetres" or response == "centimetres":
             return "Centimeters"
 
-        elif response == "m" or response == "meters" or response == "M" or response == "Meters" or response == "metres"\
-        \
+        elif response == "m" or response == "meters" or response == "M" or response == "Meters" or response == "metres" \
                 or response == "Metres":
             return "Meters"
 
@@ -234,6 +230,7 @@ def distance_bits():
                                                                                    to_be_converted_integer))
         if output == "You have chosen Meters/Metres to Meters/Metres":
             print("{} Meters/Metres = {} Meters/Metres".format(to_be_converted_integer, to_be_converted_integer))
+
         if output == "You have chosen Kilometers/Kilometres to Kilometers/Kilometres":
             print("{} Kilometers/Kilometres = {} Kilometers/Kilometres".format(to_be_converted_integer,
                                                                                to_be_converted_integer))
@@ -354,7 +351,7 @@ while keep_going == "":
         distance_bits()
 
     if data_type == "You Have Chosen Weight":
-        time_bits()
+        weight_bits()
 
     else:
         time_bits()
