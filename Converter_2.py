@@ -84,9 +84,96 @@ def unit_check(question):
             return "hrs"
 
         else:
-            print("Please choose a the unit of distance you are converting to, being Milligrams, Grams, "
-                  "Kilograms")
+            print("Please choose a the unit of distance you are converting to, being Seconds, Minutes, Hours")
             print()
+
+
+def twd(question):
+    valid = False
+    while not valid:
+
+        response = input(question)
+
+        if response == "d" or response == "distance":
+            return "distance"
+
+        if response == "t" or response == "time":
+            return "time"
+
+        if response == "w" or response == "weight":
+            return "weight"
+
+        else:
+            print("Please provide a either Time, Weight or Distance as a unit")
+            print()
+
+
+def weight_bits():
+    print()
+    to_be_converted = unit_check_weight(
+        "Enter the unit of weight you are converting, being Milligrams, Grams, Kilograms: ")
+    print()
+
+    to_be_converted_to = unit_check_weight("Enter the unit of weight you are converting into, being Milligrams, Grams, "
+                                           "Kilograms: ")
+
+    print()
+
+    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
+    output = ("You have chosen {}".format(first_part))
+    print(output)
+
+    print()
+
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
+
+
+def distance_bits():
+
+    from_unit = unit_check("What unit do you have? ")
+    if from_unit == cm or from_unit == km or from_unit == m or from_unit == mm:
+        return print("right")
+    else:
+        print("wrong ")
+
+    to_unit = unit_check("What unit do you want? ")
+
+    how_much = num_check("How many {} do you have?".format(from_unit))
+
+    print()
+
+    first_part = ("{} to {}".format(from_unit, to_unit))
+    output = ("You have chosen {}".format(first_part))
+    print(output)
+
+    print(how_much)
+
+    print()
+
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
+
+
+def time_bits():
+    print()
+    to_be_converted = unit_check_time(
+        "Enter the unit of time you are converting, being Seconds, Minutes, Hours: ")
+    print()
+
+    to_be_converted_to = unit_check_time("Enter the unit of time you are converting into, being Seconds, Minutes, "
+                                         "Hours: ")
+
+    print()
+
+    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
+    output = ("You have chosen {}".format(first_part))
+    print(output)
+
+    print()
+
+    to_be_converted_integer = num_check(
+        "Enter the integer of the unit you are converting, being more than 0: ")
 
 
 def statement_generator(text, decoration):
@@ -130,12 +217,16 @@ if first_time == "":
 
 keep_going = ""
 while keep_going == "":
-    data_type = unit_check("What are converting - Weight, Time or Distance (d / t/ w)?: ")
-    print(data_type)
-
-    from_unit = unit_check("What unit do you have? ")
-    to_unit = unit_check("What unit do you want? ")
-    how_much = num_check("How many {from_unit} do you have?")
+    print()
+    data_type = twd("What are converting - Weight, Time or Distance (d/ t/ w)?: ")
+    if data_type == "weight":
+        weight_bits()
+    if data_type == "time":
+        time_bits()
+    elif data_type == "distance":
+        distance_bits()
+    else:
+        print("wrong")
 
     keep_going = input("Press <enter> to continue or any key to quit ")
     print()
