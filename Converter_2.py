@@ -59,21 +59,22 @@ def weight_unit_check(question):
 
     valid = False
     while not valid:
+
         response = input(question).lower()
 
-    if response in g:
-        return "g"
+        if response in g:
+            return "g"
 
-    elif response in kg:
-        return "kg"
+        elif response in kg:
+            return "kg"
 
-    elif response in mg:
-        return "mg"
+        elif response in mg:
+            return "mg"
 
-    else:
-        print("Please choose a the unit of distance you are converting to, being Milligrams, Grams, "
-              "Kilograms")
-        print()
+        else:
+            print("Please choose a the unit of distance you are converting to, being Milligrams, Grams, "
+                  "Kilograms")
+            print()
 
 
 def time_unit_check(question):
@@ -84,20 +85,21 @@ def time_unit_check(question):
 
     valid = False
     while not valid:
+
         response = input(question).lower()
 
-    if response in secs:
-        return "secs"
+        if response in secs:
+            return "secs"
 
-    elif response in mins:
-        return "mins"
+        elif response in mins:
+            return "mins"
 
-    elif response in hrs:
-        return "hrs"
+        elif response in hrs:
+            return "hrs"
 
-    else:
-        print("Please choose a the unit of distance you are converting to, being Seconds, Minutes, Hours")
-        print()
+        else:
+            print("Please choose a the unit of distance you are converting to, being Seconds, Minutes, Hours")
+            print()
 
 
 def twd(question):
@@ -121,77 +123,207 @@ def twd(question):
 
 
 def weight_bits():
-    print()
-    to_be_converted = weight_unit_check(
-        "Enter the unit of weight you are converting, being Milligrams, Grams, Kilograms: ")
-    print()
+    response = weight_unit_check("What is your unit?: ").lower()
+    if response == "g":
+        g()
+    if response == "kg":
+        kg()
+    elif response == "mg":
+        mg()
 
-    to_be_converted_to = weight_unit_check("Enter the unit of weight you are converting into, being Milligrams, Grams, "
-                                           "Kilograms: ")
 
-    print()
+def g():
+    how_much = num_check("How much g do you have?")
 
-    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
-    output = ("You have chosen {}".format(first_part))
-    print(output)
+    output = weight_unit_check("What are you trying to convert {}g to?: ".format(how_much))
 
-    print()
+    if output == "g":
+        final = how_much * 1
+        print("{}g to g = {}g".format(how_much, final))
+    if output == "kg":
+        final = how_much / 1000
+        print("{}g to kg = {}kg".format(how_much, final))
+    elif output == "mg":
+        final = how_much * 1000
+        print("{}g to mg = {}mg".format(how_much, final))
 
-    to_be_converted_integer = num_check(
-        "Enter the integer of the unit you are converting, being more than 0: ")
+
+def kg():
+    how_much = num_check("How much kg do you have?")
+
+    output = weight_unit_check("What are you trying to convert {}kg to?: ".format(how_much))
+
+    if output == "g":
+        final = how_much * 1000
+        print("{}kg to g = {}g".format(how_much, final))
+    if output == "kg":
+        final = how_much * 1
+        print("{}kg to kg = {}kg".format(how_much, final))
+    elif output == "mg":
+        final = how_much * 1000000
+        print("{}kg to mg = {}mg".format(how_much, final))
+
+
+def mg():
+    how_much = num_check("How much mg do you have?")
+
+    output = weight_unit_check("What are you trying to convert {}mg to?: ".format(how_much))
+
+    if output == "g":
+        final = how_much / 1000
+        print("{}mg to g = {}g".format(how_much, final))
+    if output == "kg":
+        final = how_much / 1000000
+        print("{}mg to kg = {}kg".format(how_much, final))
+    elif output == "mg":
+        final = how_much * 1
+        print("{}mg to mg = {}mg".format(how_much, final))
 
 
 def distance_bits():
-    my_dict = {
-        "km": 0.0001,
-        "": 1000,
-    }
     response = distance_unit_check("What is your unit?: ").lower()
     if response == "km":
-        return 0.0001
+        km()
     if response == "cm":
-        return 100
+        cm()
     if response == "mm":
-        return 10000
-    if response == "m":
-        return 0
+        mm()
+    elif response == "m":
+        m()
 
-    how_much = num_check("How many {} do you have?".format(response))
 
-    print()
+def km():
+    how_much = num_check("How much km do you have?")
 
-    output = distance_unit_check("What are you trying to convert {}{} to?: ".format(how_much, response))
+    output = distance_unit_check("What are you trying to convert {}km to?: ".format(how_much))
 
-    how_much * response
+    if output == "m":
+        final = how_much * 1000
+        print("{}km to m = {}km".format(how_much, final))
+    if output == "km":
+        final = how_much * 1
+        print("{}km to km = {}km".format(how_much, final))
+    if output == "cm":
+        final = how_much * 100000
+        print("{}km to cm = {}cm".format(how_much, final))
+    elif output == "mm":
+        final = how_much * 100000
+        print("{}km to mm = {}mm".format(how_much, final))
 
-    to_do = output
 
-    my_dict[to_do] = output
+def m():
+    how_much = num_check("How much m do you have?")
 
-    print(how_much)
+    output = distance_unit_check("What are you trying to convert {}m to?: ".format(how_much))
 
-    print()
+    if output == "m":
+        final = how_much * 1
+        print("{}m to m = {}m".format(how_much, final))
+    if output == "km":
+        final = how_much / 1000
+        print("{}m to km = {}km".format(how_much, final))
+    if output == "cm":
+        final = how_much * 100
+        print("{}m to cm = {}cm".format(how_much, final))
+    elif output == "mm":
+        final = how_much * 1000
+        print("{}m to mm = {}mm".format(how_much, final))
+
+
+def cm():
+    how_much = num_check("How much cm do you have?")
+
+    output = distance_unit_check("What are you trying to convert {}cm to?: ".format(how_much))
+
+    if output == "m":
+        final = how_much / 100
+        print("{}cm to m = {}m".format(how_much, final))
+    if output == "km":
+        final = how_much / 100000
+        print("{}cm to km = {}km".format(how_much, final))
+    if output == "cm":
+        final = how_much * 1
+        print("{}cm to cm = {}cm".format(how_much, final))
+    elif output == "mm":
+        final = how_much * 10
+        print("{}cm to mm = {}mm".format(how_much, final))
+
+
+def mm():
+    how_much = num_check("How much mm do you have?")
+
+    output = distance_unit_check("What are you trying to convert {}mm to?: ".format(how_much))
+
+    if output == "mm":
+        final = how_much / 1000
+        print("{}mm to m = {}m".format(how_much, final))
+    if output == "km":
+        final = how_much / 1000000
+        print("{}mm to km = {}km".format(how_much, final))
+    if output == "cm":
+        final = how_much * 10
+        print("{}mm to cm = {}cm".format(how_much, final))
+    elif output == "mm":
+        final = how_much * 1
+        print("{}mm to mm = {}mm".format(how_much, final))
 
 
 def time_bits():
-    print()
-    to_be_converted = time_unit_check(
-        "Enter the unit of time you are converting, being Seconds, Minutes, Hours: ")
-    print()
+    response = time_unit_check("What is your unit?: ").lower()
+    if response == "secs":
+        secs()
+    if response == "mins":
+        mins()
+    elif response == "hrs":
+        hrs()
 
-    to_be_converted_to = time_unit_check("Enter the unit of time you are converting into, being Seconds, Minutes, "
-                                    "Hours: ")
 
-    print()
+def secs():
+    how_much = num_check("How many secs do you have?")
 
-    first_part = ("{} to {}".format(to_be_converted, to_be_converted_to))
-    output = ("You have chosen {}".format(first_part))
-    print(output)
+    output = time_unit_check("What are you trying to convert {}secs to?: ".format(how_much))
 
-    print()
+    if output == "secs":
+        final = how_much * 1
+        print("{}secs to secs = {}secs".format(how_much, final))
+    if output == "mins":
+        final = how_much / 60
+        print("{}secs to mins = {}mins".format(how_much, final))
+    elif output == "hrs":
+        final = how_much / 3600
+        print("{}secs to hrs = {}hrs".format(how_much, final))
 
-    to_be_converted_integer = num_check(
-        "Enter the integer of the unit you are converting, being more than 0: ")
+
+def mins():
+    how_much = num_check("How many mins do you have?")
+
+    output = time_unit_check("What are you trying to convert {}mins to?: ".format(how_much))
+
+    if output == "secs":
+        final = how_much * 60
+        print("{}mins to secs = {}secs".format(how_much, final))
+    if output == "mins":
+        final = how_much * 1
+        print("{}mins to mins = {}mins".format(how_much, final))
+    elif output == "hrs":
+        final = how_much / 60
+        print("{}mins to hrs = {}hrs".format(how_much, final))
+
+
+def hrs():
+    how_much = num_check("How many hrs do you have?")
+
+    output = time_unit_check("What are you trying to convert {}hrs to?: ".format(how_much))
+
+    if output == "secs":
+        final = how_much * 3600
+        print("{}hrs to secs = {}secs".format(how_much, final))
+    if output == "mins":
+        final = how_much * 60
+        print("{}hrs to mins = {}mins".format(how_much, final))
+    elif output == "hrs":
+        final = how_much * 1
+        print("{}hrs to hrs = {}hrs".format(how_much, final))
 
 
 def statement_generator(text, decoration):
@@ -243,8 +375,6 @@ while keep_going == "":
         time_bits()
     elif data_type == "distance":
         distance_bits()
-    else:
-        print("wrong")
 
     keep_going = input("Press <enter> to continue or any key to quit ")
     print()
