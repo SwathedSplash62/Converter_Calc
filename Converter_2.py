@@ -354,11 +354,6 @@ def instructions():
 
 # Main routine starts here
 
-# Lists to check that chosen units are in the same domain
-all_distance = ["mm", "cm", "m", "km"]
-all_time = ["secs", "mins", "hrs"]
-all_weight = ["g"]
-
 statement_generator("Converter Of Time, Weight and Distance", "+")
 
 first_time = input("Press <enter> to see the instructions or any key to continue")
